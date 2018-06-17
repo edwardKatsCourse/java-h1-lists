@@ -1,0 +1,69 @@
+1. ArrayList vs LinkedList
+2. LinkedList
+3. Performance ArrayList vs LinkedList
+4. final
+
+
+Collections in Java
+         
+         List - сохраняет все, что мы добавляем List<String>
+         Set - гарантирует, что не будет дубликатов Set<String>
+         Map - ключ, значение 
+
+         Пример: 
+         - ключ - емайл, значение - User
+         - ключ - марка машины (Opel), значение - все машины марки Opel
+         Map<String, List<Car>
+         Map<String, User> (email, User)
+         Map<Long, User> (Database ID, User rows)
+
+
+
+  ArrayList 	 vs 	   LinkedList
+random access	 	sequential access
+
+
+Sequential access - LinkedList
+     array[0]
+     array[1]
+     array[2]
+     ....
+
+     array[9]
+
+     Random access - ArrayList
+     array[9] напрямую
+
+     Очередь в Israel Post - random access. Вы получили номерок и ваш номер - 3
+     Живая очередь - sequential access. Каждый помнит: кто за кем, но при этом не знает
+     кто в очереди под номером , например, 15.
+
+
+
+Bulk - это когда хотим добавить сразу много шутковин в коллекцию
+    addAll(1_000_000 объектов одним методом)
+
+Когда нужно достать (любой) элемент из коллекции,
+оперируют 2 понятиями: доступ [к элементу] по индексу и по значению
+
+    Доступ по индексу - array[9]
+    Доступ по значению - "найди мне элемент, значение у которого = "а" "
+
+
+trimToSize()
+ArrayList = new ArrayList -> внутри создается массив на 10 элементов (capacity - пропускная способность)
+    после того, как вы заполнили половину - ArrayList "само-расширяется" в 2 раза (до 20).
+    Capacity - это внутренняя реализация. Поэтому, если вы 5 раз вызвали метод add, то
+    size() вернет ПЯТЬ, а не capacity
+
+    Дано:
+    ArrayList в котором лежит 4 элемента (capacity = 10)
+    trimToSize() - сожмет capacity до 4.
+    Это становится ВАЖНО, когда речь идет о листах с десятками миллионов элементов.
+    1_700_000 элементов - это capacity в 4_000_000
+
+
+lastIndexOf()
+файл.txt
+файл.exe
+файл.1.мое.фото.jpg -> lastIndexOf
